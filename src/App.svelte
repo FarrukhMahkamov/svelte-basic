@@ -20,6 +20,10 @@
 			age : 18
 		}
 	]
+
+	const removePerson = (id) => {
+		people = people.filter((data) => data.id != id)
+	}
 </script>
 
 <main>
@@ -27,6 +31,7 @@
 		<div>
 			<h4>{person.name}</h4>
 			<p>{person.age}, color of the eye {person.eyeColor}</p>
+			<button on:click={() => {removePerson(person.id)}}>Delete</button>
 		</div>
 		{:else}
 		<p>There is no peaople to show</p>
