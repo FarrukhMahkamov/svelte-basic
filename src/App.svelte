@@ -1,5 +1,5 @@
 <script>
-	
+	import Modal from './components/Modal.svelte'
 	let people = [
 		{	
 			id : 1,
@@ -25,7 +25,7 @@
 		people = people.filter((data) => data.id != id)
 	}
 </script>
-
+<Modal />
 <main>
 	{#each people as person (person.id)}
 		<div>
