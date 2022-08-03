@@ -25,7 +25,7 @@
 		people = people.filter((data) => data.id != id)
 	}
 </script>
-<Modal />
+<Modal message="Hey its a prop" isPromo={true}/>
 <main>
 	{#each people as person (person.id)}
 		<div>

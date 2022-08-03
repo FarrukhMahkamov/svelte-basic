@@ -1,12 +1,13 @@
 <script>
+    export let message = "Unused modal prop";
     let showModal = true
-    let isPromo = true
+    export let isPromo = false
 </script>
 
 {#if showModal}
 <div class="backdrop" class:promo={isPromo}>
     <div class="modal">
-        <p>Sign Up! For more offers.</p>
+        <p>{message}</p>
     </div>
 </div>
 {/if}
@@ -28,7 +29,6 @@
     }
 
     .promo .modal {
-        background: red;
-        color: white;
+        background: white;
     }
 </style>
