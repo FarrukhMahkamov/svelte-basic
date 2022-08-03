@@ -1,32 +1,23 @@
 <script>
 	import Modal from './components/Modal.svelte'
+
+	let showModal = false
+	const toggleModal = () => {
+		showModal = !showModal
+	}
 	let people = [
-		{	
-			id : 1,
-			name : "Farruh",
-			eyeColor : "Black",
-			age : 22
-		},
-		{
-			id : 2,
-			name : "Umid",
-			eyeColor : "Green",
-			age : 22
-		},
-		{
-			id : 3,
-			name : "Ozod",
-			eyeColor : "Black",
-			age : 18
-		}
+		{id : 1,name : "Farruh",eyeColor : "Black",age : 22},
+		{id : 2,name : "Umid",eyeColor : "Green",age : 22},
+		{id : 3,name : "Ozod",eyeColor : "Black",age : 18}
 	]
 
 	const removePerson = (id) => {
 		people = people.filter((data) => data.id != id)
 	}
 </script>
-<Modal message="Hey its a prop" isPromo={true}/>
+<Modal message="Hey its a prop" isPromo={true} {showModal} on:click={toggleModal}/>
 <main>
+	<button on:click={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}
 		<div>
 			<h4>{person.name}</h4>
