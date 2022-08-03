@@ -1,22 +1,17 @@
 <script>
-	export let name;
-	let beltColor = 'Black';
+	let firstName = 'Farruh'
+	let lastName = 'Mahkamov'
 
-	const handleClick = () => {
-		beltColor = 'Orange'
-	}
+	$: fullname = `${firstName} ${lastName}`
 
-	const handleInput = (e) => {
-		beltColor = e.target.value
-	}
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>{beltColor} belt</p>
-	<button on:click={handleClick}>Change Color</button>
-	<!-- <input type="text" on:input={handleInput}> -->
-	<input type="text" bind:value={beltColor}>
+	<p>Your name is {firstName}</p>
+	<p>Your last name is {lastName}</p>
+
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
 </main>
 
 <style>
