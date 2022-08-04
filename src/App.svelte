@@ -1,6 +1,6 @@
 <script>
 	import Modal from './components/Modal.svelte'
-
+	import AddPersomForm from './components/Form.svelte'
 	let showModal = false
 	const toggleModal = () => {
 		showModal = !showModal
@@ -14,8 +14,16 @@
 	const removePerson = (id) => {
 		people = people.filter((data) => data.id != id)
 	}
+
+	const addPerson = (e) => {
+		const person = e.detail
+		people = [person, ...people]
+		showModal = false
+	}
 </script>
-<Modal message="Hey its a prop" isPromo={true} {showModal} on:click={toggleModal}/>
+<Modal {showModal} on:click={toggleModal}>
+	<AddPersomForm on:addPerson={addPerson}/>
+</Modal>
 <main>
 	<button on:click={toggleModal}>Open Modal</button>
 	{#each people as person (person.id)}

@@ -1,5 +1,4 @@
 <script>
-    export let message = "Unused modal prop";
     export let showModal = false
     export let isPromo = false
 </script>
@@ -7,7 +6,9 @@
 {#if showModal}
 <div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal">
-        <p>{message}</p>
+        <slot>
+            
+        </slot>
     </div>
 </div>
 {/if}
